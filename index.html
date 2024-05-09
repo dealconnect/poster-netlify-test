@@ -1,20 +1,35 @@
-<form name="contact" method="POST" netlify>
+<form name="request" method="POST" netlify>
   <p>
-    <label>Your Name: <input type="text" name="name" /></label>
+    <label>requester_name <input type="text" name="requester_name" /></label>
   </p>
   <p>
-    <label>Your Email: <input type="email" name="email" /></label>
+    <label>requester_email <input type="email" name="requester_email" /></label>
   </p>
   <p>
-    <label>Your Role: <select name="role[]" multiple>
-      <option value="leader">Leader</option>
-      <option value="follower">Follower</option>
-    </select></label>
+    <label>requester_phone <input type="text" name="requester_phone" /></label>
   </p>
   <p>
-    <label>Message: <textarea name="message"></textarea></label>
+    <label>site_name <input type="text" name="site_name" /></label>
   </p>
   <p>
-    <button type="submit">Send</button>
+    <label>site_address <input type="text" name="site_address" /></label>
+  </p>
+  <p>
+    <label>cargo_details <input type="text" name="cargo_details" /></label>
+  </p>
+  <p>
+    <label>desired_pickup_at <input type="datetime-local" name="desired_pickup_at" /></label>
+  </p>
+  <p>
+    <label>site_contact_name <input type="text" name="site_contact_name" /></label>
+  </p>
+  <p>
+    <label>site_contact_phone <input type="text" name="site_contact_phone" /></label>
+  </p>
+  <p>
+    <label>comment <textarea name="comment"></textarea></label>
+  </p>
+  <p>
+    <button type="submit">send</button>
   </p>
 </form>

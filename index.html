@@ -19,9 +19,30 @@
 
       <form name="request" method="POST" action="/success.html" netlify>
         <h5>回収依頼内容</h5>
-        <label for="desired_pickup_at">
-          回収希望日時
-          <input type="datetime-local" id="desired_pickup_at" name="desired_pickup_at" required/>
+        <label for="desired_pickup_date">
+          希望日時
+          <input type="text" id="desired_pickup_date" name="desired_pickup_date" placeholder="例）9月22日または9月23日" required/>
+        </label>
+
+        <label for="desired_pickup_period">
+          希望時間帯
+          <select name="desired_pickup_period" aria-label="選択してください" required>
+            <option selected disabled value="">選択してください</option>
+            <option value="am">午前</option>
+            <option value="pm">午後</option>
+            <option value="alltime">終日可能</option>
+            <option value="other">その他（留意事項に記載してください）</option>
+          </select>
+        </label>
+
+        <label for="number_of_trucks">
+          希望台数
+          <input type="number" id="number_of_trucks" name="number_of_trucks" placeholder="入力してください" required/>
+        </label>
+        
+        <label for="kind_of_truck">
+          希望車種
+          <input type="text" id="kind_of_truck" name="kind_of_truck" placeholder="例）大型ウイング車" required/>
         </label>
 
         <label for="site_name">
@@ -44,17 +65,17 @@
         <h5>依頼者情報</h5>
         <label for="requester_name">
           担当者名
-          <input type="text" id="requester_name" name="requester_name" required/>
+          <input type="text" id="requester_name" name="requester_name" placeholder="入力してください" required/>
         </label>
 
         <label for="requester_phone">
           電話番号
-          <input type="tel" id="requester_phone" name="requester_phone" required/>
+          <input type="tel" id="requester_phone" name="requester_phone" placeholder="入力してください" required/>
         </label>
 
         <label for="requester_email">
           メールアドレス
-          <input type="email" id="requester_email" name="requester_email" required/>
+          <input type="email" id="requester_email" name="requester_email" placeholder="入力してください" required/>
         </label>
 
         <label for="comment">

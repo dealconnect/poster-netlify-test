@@ -1,35 +1,79 @@
-<form name="request" method="POST" netlify>
-  <p>
-    <label>requester_name <input type="text" name="requester_name" /></label>
-  </p>
-  <p>
-    <label>requester_email <input type="email" name="requester_email" /></label>
-  </p>
-  <p>
-    <label>requester_phone <input type="text" name="requester_phone" /></label>
-  </p>
-  <p>
-    <label>site_name <input type="text" name="site_name" /></label>
-  </p>
-  <p>
-    <label>site_address <input type="text" name="site_address" /></label>
-  </p>
-  <p>
-    <label>cargo_details <input type="text" name="cargo_details" /></label>
-  </p>
-  <p>
-    <label>desired_pickup_at <input type="datetime-local" name="desired_pickup_at" /></label>
-  </p>
-  <p>
-    <label>site_contact_name <input type="text" name="site_contact_name" /></label>
-  </p>
-  <p>
-    <label>site_contact_phone <input type="text" name="site_contact_phone" /></label>
-  </p>
-  <p>
-    <label>comment <textarea name="comment"></textarea></label>
-  </p>
-  <p>
-    <button type="submit">send</button>
-  </p>
-</form>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css" />
+    <link href="https://use.fontawesome.com/releases/v6.2.0/css/all.css" rel="stylesheet">
+    <title>回収依頼フォーム</title>
+  </head>
+  <body>
+    <main>
+      <hgroup>
+        <h3>回収依頼フォーム</h3>
+        <p>
+          お問い合わせフォームをご利⽤の際は、必ず下記「個人情報保護方針」をご⼀読ください。内容に同意していただけましたら、下記フォームに必要事項をご⼊⼒の上、「依頼を送信する」ボタンを押してください。なお、ご依頼内容によってはご返答が遅れる場合がございます。ご了承ください。
+        </p>
+      </hgroup>
+
+      <form name="request" method="POST" action="/success.html" netlify>
+        <h5>回収依頼内容</h5>
+        <label for="desired_pickup_at">
+          回収希望日時
+          <input type="datetime-local" id="desired_pickup_at" name="desired_pickup_at" required/>
+        </label>
+
+        <label for="site_name">
+          回収場所名
+          <input type="text" id="site_name" name="site_name" placeholder="例）OX金属株式会社 本社工場" required/>
+        </label>
+
+        <label for="site_address">
+          回収場所住所
+          <input type="text" id="site_address" name="site_address" placeholder="例）東京都千代田区飯田橋3丁目42-1" required/>
+        </label>
+
+        <label for="cargo_details">
+          回収品目
+          <input type="text" id="cargo_details" name="cargo_details" placeholder="例）ロッカー30個" required/>
+        </label>
+
+        <hr />
+
+        <h5>依頼者情報</h5>
+        <label for="requester_name">
+          担当者名
+          <input type="text" id="requester_name" name="requester_name" required/>
+        </label>
+
+        <label for="requester_phone">
+          電話番号
+          <input type="tel" id="requester_phone" name="requester_phone" required/>
+        </label>
+
+        <label for="requester_email">
+          メールアドレス
+          <input type="email" id="requester_email" name="requester_email" required/>
+        </label>
+
+        <label for="comment">
+          留意事項
+          <textarea name="comment" id="comment" placeholder="車両の制限など留意すべき点や回収時の希望等があればご入力ください。"></textarea>
+        </label>
+
+        <label for="privacy-policy">
+          <input type="checkbox" id="privacy-policy" name="privacy-policy" required>
+          <a href="https://google.com">個人情報保護方針</a>に同意する
+        </label>
+
+        <button type="submit">依頼を送信する</button>
+      </form>
+    </main>
+  </body>
+</html>
+
+
+
+
+

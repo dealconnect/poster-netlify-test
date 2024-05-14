@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: .
+    tty: true
+    env_file: .env
+    volumes:
+      - ./:/app
+    environment:
+      - WATCHPACK_POLLING=true
+    command: sh -c "npm run dev --prefix ./src"
+    ports:
+      - "${PORT}:${PORT}"

@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -39,10 +39,17 @@
           希望台数
           <input type="number" id="number_of_trucks" name="number_of_trucks" placeholder="入力してください" required/>
         </label>
-        
+
         <label for="kind_of_truck">
           希望車種
-          <input type="text" id="kind_of_truck" name="kind_of_truck" placeholder="例）大型ウイング車" required/>
+          <select name="kind_of_truck" aria-label="選択してください" required>
+            <option selected disabled value="">選択してください</option>
+            <option value="平ボディ">平ボディ</option>
+            <option value="クレーン付き平ボディ">クレーン付き平ボディ</option>
+            <option value="ダンプ">ダンプ</option>
+            <option value="コンテナ">コンテナ</option>
+            <option value="other">その他（留意事項に記載してください）</option>
+          </select>
         </label>
 
         <label for="site_name">
@@ -63,8 +70,13 @@
         <hr />
 
         <h5>依頼者情報</h5>
+        <label for="requester_company_name">
+          依頼会社名
+          <input type="text" id="requester_company_name" name="requester_company_name" placeholder="入力してください" required/>
+        </label>
+
         <label for="requester_name">
-          担当者名
+          依頼者名
           <input type="text" id="requester_name" name="requester_name" placeholder="入力してください" required/>
         </label>
 
@@ -97,4 +109,4 @@
 
 
 
-
+ -->

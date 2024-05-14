@@ -4,15 +4,14 @@ import React, { useCallback, useState } from 'react';
 import RequesterForm from '@/features/index/RequesterForm';
 import RequestForm from '@/features/index/RequestForm';
 import { useRouter } from 'next/navigation';
-import { Schema, initialSchema, schema } from '@/features/index/schema';
+import { Schema, schema } from '@/features/index/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProvider, useForm } from 'react-hook-form';
 
 const Index = () => {
   // const [formData, setFormData] = useState({});
   const form = useForm<Schema>({
-    resolver: zodResolver(schema),
-    defaultValues: initialSchema
+    resolver: zodResolver(schema)
   })
 
   const {

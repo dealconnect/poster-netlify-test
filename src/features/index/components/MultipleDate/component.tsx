@@ -11,13 +11,6 @@ registerLocale("ja", ja);
 
 const MultipleDate = ({ name, label, placeholder }: Props) => {
   const { register, formState: { errors }, getValues, setValue  } = useFormContext();
-  const datePickerRef = useRef<ReactDatePicker>(null);
-
-  const openDatePicker = () => {
-    if (datePickerRef.current) {
-      datePickerRef.current.setOpen(true);
-    }
-  };
 
   const onChangeDate = useCallback(
     (date: Date | null) => {
@@ -39,7 +32,7 @@ const MultipleDate = ({ name, label, placeholder }: Props) => {
       <ReactDatePicker
           locale="ja"
           onChange={onChangeDate}
-          customInput={<button className="shadow block w-full border rounded-l-lg px-4 py-2 bg-gray-100 hover:bg-gray-200 font-bold" onClick={() => openDatePicker()}>+</button>}
+          customInput={<div className="shadow block w-full border rounded-l-lg px-4 py-2 bg-gray-100 hover:bg-gray-200 font-bold">+</div>}
         />
         <input
           {...register(name)}

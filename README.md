@@ -3,13 +3,13 @@
 ## Setup
 
 ```bash
-docker compose run --rm poster-netlify-test sh -c 'npx create-next-app . --typescript'
+docker compose run --rm app sh -c 'npx create-next-app . --typescript'
 ```
 
 ## Run
 
 ```bash
-docker compose run
+docker compose up
 ```
 
 http://localhost:3001

@@ -7,9 +7,10 @@ import { useRouter } from 'next/navigation';
 import { Schema, schema } from '@/features/index/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProvider, useForm } from 'react-hook-form';
+import Button from '@/features/index/components/Button/component';
 
 const Index = () => {
-  // const [formData, setFormData] = useState({});
+  const [submitting, setSubmit] = useState<boolean>(false)
   const form = useForm<Schema>({
     resolver: zodResolver(schema)
   })
@@ -24,6 +25,7 @@ const Index = () => {
 
   const onSubmit = async (schema: Schema) => {
     try {
+      setSubmit(true)
       const response = await fetch(`${process.env.NEXT_PUBLIC_POSTER_API_URL}/api/external_scrap_collection_requests`, {
         method: 'POST',
         headers: {
@@ -34,13 +36,18 @@ const Index = () => {
       });
 
       if (response.ok) {
+        setSubmit(false)
         console.log('Form submitted successfully');
         router.push('/success')
       } else {
+        setSubmit(false)
         console.error('Form submission error');
+        alert('引取依頼に失敗しました(1)')
       }
     } catch (error) {
+      setSubmit(false)
       console.error('An error occurred:', error);
+      alert('引取依頼に失敗しました(2)')
     }
   };
 
@@ -66,7 +73,7 @@ const Index = () => {
               </span>
               {errors['agree_privacy_policy'] && <p className="text-red-500 text-xs italic">{errors['agree_privacy_policy'].message as string}</p>}
             </div>
-            <button type='submit' className="block w-full py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-600">依頼を送信する</button>
+            <Button type='submit' disabled={submitting}>依頼を送信する</Button>
           </FormProvider>
         </form>
       </div>
